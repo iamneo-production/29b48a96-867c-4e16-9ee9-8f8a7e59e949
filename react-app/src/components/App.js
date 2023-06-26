@@ -3,8 +3,8 @@ import BasicForm from './basicForm';
 import Dash from './Dashboard';
 import { auth , firebase } from './firebase';
 import { BrowserRouter as Router,Route, Routes } from "react-router-dom";
-import PatientManagement from './patient';
-import Dashboard from './Page/Dashboard/EmpDash';
+/* import PatientManagement from './patient';
+import Dashboard from './Page/Dashboard/EmpDash'; */
 function App() {
   const [viewOtpForm, setViewOtpForm] = useState(false);
  
@@ -96,8 +96,8 @@ return (
             element ={<BasicForm loginSubmit={loginSubmit} otpSubmit = {otpSubmit} viewOtpForm={viewOtpForm} ver={ver}/>}>
         </Route>
         <Route path="/Dashboard" element ={<Dash signOut={signOut} user={user}/>}></Route>
-        <Route path = "/Dashboard/Patient" element={<PatientManagement/>}></Route>
-        <Route path = "/Dashboard/Staff" element={<Dashboard/>}></Route>
+        {/* <Route path = "/Dashboard/Patient" element={<PatientManagement/>}></Route>
+        <Route path = "/Dashboard/Staff" element={<Dashboard/>}></Route> */}
     </Routes>
 </Router>
     );
