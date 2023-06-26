@@ -1,11 +1,9 @@
 import React from 'react'
 import './basicForm.css'
-import "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { useNavigate } from 'react-router';
+
 
 const BasicForm = ({ loginSubmit, otpSubmit, viewOtpForm,ver }) =>{
- const navigate = useNavigate();
+
 return(
  <div>
  
