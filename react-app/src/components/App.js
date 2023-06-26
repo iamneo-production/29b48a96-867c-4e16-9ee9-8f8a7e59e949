@@ -1,14 +1,13 @@
 import { useEffect ,useState} from 'react';
-import './App.css';
 import BasicForm from './basicForm';
 import Dash from './Dashboard';
 import { auth , firebase } from './firebase';
-import { BrowserRouter as Router,Route, Link , Routes ,Navigate} from "react-router-dom";
+import { BrowserRouter as Router,Route, Routes } from "react-router-dom";
 import PatientManagement from './patient';
 import Dashboard from './Page/Dashboard/EmpDash';
 function App() {
   const [viewOtpForm, setViewOtpForm] = useState(false);
-  const [ver,setVer] = useState(false);
+ 
   
   const loginSubmit = (e) => {
     e.preventDefault();
