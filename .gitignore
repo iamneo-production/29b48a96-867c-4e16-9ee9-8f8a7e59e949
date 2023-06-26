@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -31,5 +32,7 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+>>>>>>> 08fa508 ( Project Structure setup)
 node_modules/
 done
