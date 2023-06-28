@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.dshritama.springapp.model.Patient;
 import com.dshritama.springapp.model.Pharmacy;
 import com.dshritama.springapp.service.PharmacyService;
+import com.dshritama.springapp.service.PatientService;
 
 @RestController
 @RequestMapping("/pharms")
@@ -68,12 +69,12 @@ public class PharmacyController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    /* @GetMapping("/{id}/patient")
+    @GetMapping("/{id}/patient")
     public ResponseEntity<Patient> getPatientByPharmacyId(@PathVariable("id") Long id) {
         Patient patient = pharmacyService.getPatientByPharmacyId(id);
         if (patient != null) {
             return new ResponseEntity<>(patient, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    } */
-}
+    } 
+} 

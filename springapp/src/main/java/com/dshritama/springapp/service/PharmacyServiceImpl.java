@@ -8,16 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.dshritama.springapp.model.Pharmacy;
 import com.dshritama.springapp.repository.PharmacyRepository;
+import com.dshritama.springapp.repository.PatientRepository;
 
 @Service
 public class PharmacyServiceImpl implements PharmacyService {
     private final PharmacyRepository pharmacyRepository;
-    //private final PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
 
     @Autowired
     public PharmacyServiceImpl(PharmacyRepository pharmacyRepository) {
         this.pharmacyRepository = pharmacyRepository;
-        //this.patientRepository = patientRepository;
+        this.patientRepository = patientRepository;
     }
 
     @Override
@@ -54,13 +55,13 @@ public class PharmacyServiceImpl implements PharmacyService {
         pharmacyRepository.deleteById(id);
     }
 
-   /*  @Override
+    @Override
     public Patient getPatientByPharmacyId(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPatientByPharmacyId'");
     }
- */
-   /*  @Override
+ 
+   @Override
     public Patient getPatientByPharmacyId(Long id) {
         Pharmacy pharmacy = pharmacyRepository.findById(id).orElse(null);
         if (pharmacy != null) {
@@ -68,5 +69,5 @@ public class PharmacyServiceImpl implements PharmacyService {
             return patientRepository.findById(patientId).orElse(null);
         }
         return null;
-    }*/
+    }
 } 

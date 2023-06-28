@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.dshritama.springapp.model.Pharmacy;
+import com.dshritama.springapp.model.Patient;
 
 public interface PharmacyService {
     List<Pharmacy> getAllPharmacies();
@@ -16,6 +17,6 @@ public interface PharmacyService {
 
     void deletePharmacy(Long id);
 
-    //Patient getPatientByPharmacyId(Long id);
+    Patient getPatientByPharmacyId(Long id);
 }
 

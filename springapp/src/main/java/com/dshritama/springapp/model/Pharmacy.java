@@ -79,8 +79,8 @@ public class Pharmacy {
     public void setPrescriptionNumber(String prescriptionNumber) {
         this.prescriptionNumber = prescriptionNumber;
     }
-}
-/*     @ManyToOne(fetch = FetchType.LAZY)
+
+  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patientId", insertable = false, updatable = false)
     private Patient patient;
 
@@ -91,4 +91,4 @@ public class Pharmacy {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
- */
+}
