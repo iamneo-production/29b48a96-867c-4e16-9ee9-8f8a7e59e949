@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import jakarta.persistence.JoinColumn;
-//import jakarta.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
 
+import com.dshritama.springapp.model.Patient;
 @Entity
 
 public class Pharmacy {

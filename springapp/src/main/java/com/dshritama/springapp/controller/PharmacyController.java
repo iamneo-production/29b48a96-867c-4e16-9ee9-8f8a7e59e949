@@ -33,7 +33,7 @@ public class PharmacyController {
         this.pharmacyService = pharmacyService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<Pharmacy>> getAllPharmacies() {
         List<Pharmacy> pharmacies = pharmacyService.getAllPharmacies();
         return new ResponseEntity<>(pharmacies, HttpStatus.OK);
@@ -48,7 +48,7 @@ public class PharmacyController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Pharmacy> createPharmacy(@RequestBody Pharmacy pharmacy) {
         Pharmacy createdPharmacy = pharmacyService.createPharmacy(pharmacy);
         return new ResponseEntity<>(createdPharmacy, HttpStatus.CREATED);
@@ -63,7 +63,7 @@ public class PharmacyController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deletePharmacy(@PathVariable("id") Long id) {
         pharmacyService.deletePharmacy(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

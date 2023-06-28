@@ -31,10 +31,10 @@ public class PatientServiceImpl implements PatientService {
         patientRepository.deleteById(id);
     }
 
-    /* @Override
+    
     public void updatePatient(Patient patient) {
         patientRepository.save(patient);
-    } */
+    } 
 
     @Override
     public Patient createPatient(Patient patient) {
