@@ -12,7 +12,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer age;
+    private Long age;
     
     private String gender;
     private String address;
@@ -26,8 +26,8 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(Long id, String name, Integer age, String gender, String address, String phone, String email,
-    String medicalHistory, String treatmentPlan) {
+    public Patient(Long id, String name, Long age, String gender, String address, String phone, String email,
+            String medicalHistory, String treatmentPlan) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -62,11 +62,11 @@ public class Patient {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
