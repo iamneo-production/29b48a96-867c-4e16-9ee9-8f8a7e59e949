@@ -2,21 +2,51 @@ package com.dshritama.springapp.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dshritama.springapp.model.Pharmacy;
-import com.dshritama.springapp.model.Patient;
+import com.dshritama.springapp.repository.PatientRepository;
+import com.dshritama.springapp.repository.PharmacyRepository;
 
-public interface PharmacyService {
-    List<Pharmacy> getAllPharmacies();
+@Service
+public class PharmacyService {
+    @Autowired
+    private final PharmacyRepository pharmacyRepository;
+    private final PatientRepository patientRepository;
 
-    Pharmacy getPharmacyById(Long id);
+    public PharmacyService(PharmacyRepository pharmacyRepository, PatientRepository patientRepository) {
+        this.pharmacyRepository = pharmacyRepository;
+        this.patientRepository = patientRepository;
+    }
 
-    Pharmacy createPharmacy(Pharmacy pharmacy);
+    public List<Pharmacy> getAllPharmacy() {
+        return pharmacyRepository.findAll();
+    }
 
-    Pharmacy updatePharmacy(Long id, Pharmacy updatedPharmacy);
+    public Pharmacy getPharmacyById(Long id) {
+        return pharmacyRepository.findById(id).orElse(null);
+    }
 
-    void deletePharmacy(Long id);
+    public Pharmacy createPharmacy(Pharmacy pharmacy) {
+        return pharmacyRepository.save(pharmacy);
+    }
 
-    Patient getPatientByPharmacyId(Long id);
+    public Pharmacy updatePharmacy(Pharmacy updatedPharmacy) {
+        Pharmacy pharmacy = pharmacyRepository.findById(updatedPharmacy.getId()).orElseThrow(() -> new IllegalArgumentException("Invalid pharmacy ID"));;
+       
+           
+            pharmacy.setMedicationName(updatedPharmacy.getMedicationName());
+            pharmacy.setDosage(updatedPharmacy.getDosage());
+            pharmacy.setRefillDate(updatedPharmacy.getRefillDate());
+            pharmacy.setPrescriptionNumber(updatedPharmacy.getPrescriptionNumber());
+            pharmacy.setPatientId(updatedPharmacy.getPatientId());
+            return pharmacyRepository.save(pharmacy);
+        
+    
+    }
+
+    public void deletePharmacy(Long id) {
+        pharmacyRepository.deleteById(id);
+    }
 }
-
