@@ -1,33 +1,28 @@
 package com.dshritama.springapp.model;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import jakarta.persistence.*;
+//checking
 @Entity
-public class Patient {
+public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private Long age;
-    
     private String gender;
     private String address;
     private String phone;
     private String email;
-    
-    @Column(name = "medicalHistory")
-    private String medicalHistory;
-    @Column(name = "treatmentPlan")
-    private String treatmentPlan;
+    @Column(name = "jobTitle")
+    private String jobTitle;
+    private Long salary;
+    private String benefits;
 
-    public Patient() {}
 
-    public Patient(Long id, String name, Long age, String gender, String address, String phone, String email,
-            String medicalHistory, String treatmentPlan) {
+    public Staff() {
+    }
+
+    public Staff(Long id,String name, Long age, String gender, String address, String phone, String email, String jobTitle, Long salary, String benefits) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -35,16 +30,12 @@ public class Patient {
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.medicalHistory = medicalHistory;
-        this.treatmentPlan = treatmentPlan;
+        this.jobTitle = jobTitle;
+        this.salary = salary;
+        this.benefits = benefits;
     }
 
-    @Override
-    public String toString() {
-        return "Patient [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address
-                + ", phone=" + phone + ", email=" + email + ", medicalHistory=" + medicalHistory + ", treatmentPlan="
-                + treatmentPlan + "]";
-    }
+    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -102,19 +93,34 @@ public class Patient {
         this.email = email;
     }
 
-    public String getMedicalHistory() {
-        return medicalHistory;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setMedicalHistory(String medicalHistory) {
-        this.medicalHistory = medicalHistory;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
-    public String getTreatmentPlan() {
-        return treatmentPlan;
+    public Long getSalary() {
+        return salary;
     }
 
-    public void setTreatmentPlan(String treatmentPlan) {
-        this.treatmentPlan = treatmentPlan;
+    public void setSalary(Long salary) {
+        this.salary = salary;
     }
+
+    public String getBenefits() {
+        return benefits;
+    }
+
+    public void setBenefits(String benefits) {
+        this.benefits = benefits;
+    }
+
+	@Override
+	public String toString() {
+		return "Staff [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address
+				+ ", phone=" + phone + ", email=" + email + ", jobTitle=" + jobTitle + ", salary=" + salary
+				+ ", benefits=" + benefits + "]";
+	}
 }
