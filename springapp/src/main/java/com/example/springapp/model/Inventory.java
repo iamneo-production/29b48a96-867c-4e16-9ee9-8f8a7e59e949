@@ -1,4 +1,4 @@
-package com.dshritama.springapp.model;
+package com.example.springapp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +29,8 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return "Inventory [id=" + id + ", name=" + name + ", quantity=" + quantity + ", category=" + category + ", price=" + price
-                + ", supplier=" + supplier + "]";
+        return "Inventory [id=" + id + ", name=" + name + ", quantity=" + quantity + ", category=" + category
+                + ", price=" + price + ", supplier=" + supplier + "]";
     }
 
     public Long getId() {
@@ -80,5 +80,4 @@ public class Inventory {
     public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
-
 }
