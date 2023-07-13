@@ -1,7 +1,7 @@
 package com.dshritama.springapp.service;
 
 import java.util.List;
-//import java.util.Optional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,21 +21,20 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient getPatientById(Long id) {
-        return patientRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
+    public Optional<Patient> getPatientById(Long id) {
+        return patientRepository.findById(id);
     }
 
 
     @Override
-    public void deletePatient(Long id) {
+    public void deletePatientById(Long id) {
         patientRepository.deleteById(id);
     }
 
-    /* @Override
+    
     public void updatePatient(Patient patient) {
         patientRepository.save(patient);
-    } */
+    } 
 
     @Override
     public Patient createPatient(Patient patient) {
@@ -43,19 +42,21 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient updatePatient(Patient patient) {
-        Patient updatedPatient = patientRepository.findById(patient.getId())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
-		updatedPatient.setName(patient.getName());
-		updatedPatient.setAge(patient.getAge());
-		updatedPatient.setGender(patient.getGender());
-		updatedPatient.setAddress(patient.getAddress());
-		updatedPatient.setPhone(patient.getPhone());
-		updatedPatient.setEmail(patient.getEmail());
-		updatedPatient.setMedicalHistory(patient.getMedicalHistory());
-		updatedPatient.setTreatmentPlan(patient.getTreatmentPlan());
-
-        return patientRepository.save(updatedPatient);
+    public Patient updatePatient(Long id, Patient patient) {
+        Optional<Patient> existingPatient = patientRepository.findById(id);
+    if (existingPatient.isPresent()) {
+        Patient patientToUpdate = existingPatient.get();
+        patientToUpdate.setName(patient.getName());
+        patientToUpdate.setAge(patient.getAge());
+        patientToUpdate.setGender(patient.getGender());
+        patientToUpdate.setAddress(patient.getAddress());
+        patientToUpdate.setPhone(patient.getPhone());
+        patientToUpdate.setEmail(patient.getEmail());
+        patientToUpdate.setHistory(patient.getHistory());
+        patientToUpdate.setTreatment(patient.getTreatment());
+        patientRepository.save(patientToUpdate);
+    }
+    return patient;
     }
 
 }
