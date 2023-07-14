@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springapp.model.Billing;
-import com.example.springapp.model.Patient;
-import com.example.springapp.repository.BillingRepository;
-import com.example.springapp.repository.PatientRepository;
+import com.dshritama.springapp.model.Billing;
+import com.dshritama.springapp.model.Patient;
+import com.dshritama.springapp.repository.BillingRepository;
+import com.dshritama.springapp.repository.PatientRepository;
 
 import javax.persistence.EntityNotFoundException;
 

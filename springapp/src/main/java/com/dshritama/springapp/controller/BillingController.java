@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springapp.model.Billing;
-import com.example.springapp.service.BillingService;
+import com.dshritama.springapp.model.Billing;
+import com.dshritama.springapp.service.BillingService;
 
 @RestController
 @RequestMapping("/billing")
