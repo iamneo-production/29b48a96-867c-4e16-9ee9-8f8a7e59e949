@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springapp.model.Appointment;
-import com.example.springapp.model.Patient;
-import com.example.springapp.model.Staff;
-import com.example.springapp.repository.AppointmentRepository;
-import com.example.springapp.repository.PatientRepository;
-import com.example.springapp.repository.StaffRepository;
+import com.dshritama.springapp.model.Appointment;
+import com.dshritama.springapp.model.Patient;
+import com.dshritama.springapp.model.Staff;
+import com.dshritama.springapp.repository.AppointmentRepository;
+import com.dshritama.springapp.repository.PatientRepository;
+import com.dshritama.springapp.repository.StaffRepository;
 
 import javax.persistence.EntityNotFoundException;
 

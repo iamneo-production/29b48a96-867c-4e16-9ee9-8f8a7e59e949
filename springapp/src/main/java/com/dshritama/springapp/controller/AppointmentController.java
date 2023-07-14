@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springapp.model.Appointment;
-import com.example.springapp.service.AppointmentService;
+import com.dshritama.springapp.model.Appointment;
+import com.dshritama.springapp.service.AppointmentService;
 
 @RestController
 @RequestMapping("/appointment")
