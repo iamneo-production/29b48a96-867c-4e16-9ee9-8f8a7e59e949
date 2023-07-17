@@ -1,5 +1,5 @@
 package com.dshritama.springapp.model;
-import jakarta.persistence.*;
+import javax.persistence.*;
 //checking
 @Entity
 public class Staff {
