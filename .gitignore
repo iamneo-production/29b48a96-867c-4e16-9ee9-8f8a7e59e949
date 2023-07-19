@@ -32,7 +32,12 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 =======
 >>>>>>> 08fa508 ( Project Structure setup)
 node_modules/
 done
+=======
+node_modules/
+done
+>>>>>>> 5404833 (gitignore)
