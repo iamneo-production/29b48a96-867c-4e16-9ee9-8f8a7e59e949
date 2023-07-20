@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dshritama.springapp.model.Inventory;
 import com.dshritama.springapp.service.InventoryService;
 
-@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/inventory")
+@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+
 public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
