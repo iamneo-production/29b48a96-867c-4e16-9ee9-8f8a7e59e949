@@ -20,7 +20,7 @@ import com.dshritama.springapp.model.Pharmacy;
 import com.dshritama.springapp.service.PharmacyService;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
 @RestController
 @RequestMapping("/pharmacy")
 public class PharmacyController {
