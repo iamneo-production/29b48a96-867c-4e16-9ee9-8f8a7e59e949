@@ -32,7 +32,12 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 node_modules/
 done
 >>>>>>> 13178a1 (cmt by admin)
+=======
+node_modules/
+done
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852

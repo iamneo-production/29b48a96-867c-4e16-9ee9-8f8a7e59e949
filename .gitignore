@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -33,6 +36,7 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 08fa508 ( Project Structure setup)
 node_modules/
@@ -41,3 +45,7 @@ done
 node_modules/
 done
 >>>>>>> 5404833 (gitignore)
+=======
+node_modules/
+done
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852

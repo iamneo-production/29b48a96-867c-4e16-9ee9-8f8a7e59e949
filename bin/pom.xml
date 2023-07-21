@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -65,6 +66,8 @@
 
 </project>
 =======
+=======
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.houari</groupId>
@@ -98,5 +101,9 @@
             </plugins>
         </pluginManagement>
     </build>
+<<<<<<< HEAD
 </project>
 >>>>>>> 13178a1 (cmt by admin)
+=======
+</project>
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852

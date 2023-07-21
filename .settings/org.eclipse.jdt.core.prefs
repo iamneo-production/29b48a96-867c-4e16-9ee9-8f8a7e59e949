@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 <<<<<<< HEAD
+<<<<<<< HEAD
 org.eclipse.jdt.core.compiler.codegen.methodParameters=generate
 <<<<<<< HEAD
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=11
@@ -12,11 +13,17 @@ org.eclipse.jdt.core.compiler.compliance=1.8
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
 org.eclipse.jdt.core.compiler.compliance=1.8
 >>>>>>> 08fcc7f (code commited to (dshritama)
+=======
+org.eclipse.jdt.core.compiler.codegen.methodParameters=generate
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+org.eclipse.jdt.core.compiler.compliance=1.8
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852
 org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=ignore
 org.eclipse.jdt.core.compiler.processAnnotations=disabled
 org.eclipse.jdt.core.compiler.release=disabled
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 org.eclipse.jdt.core.compiler.source=11
@@ -26,3 +33,6 @@ org.eclipse.jdt.core.compiler.source=1.8
 =======
 org.eclipse.jdt.core.compiler.source=1.8
 >>>>>>> 08fcc7f (code commited to (dshritama)
+=======
+org.eclipse.jdt.core.compiler.source=1.8
+>>>>>>> 13178a1b302c5789ed64fed55d4e27b39219d852
