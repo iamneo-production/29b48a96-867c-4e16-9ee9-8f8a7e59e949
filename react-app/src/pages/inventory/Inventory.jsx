@@ -17,6 +17,8 @@ const Inventory = () => {
     const fetchinventories = async () => {
         await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
             setInventories(response.data);
+        }).catch((err) => {
+            console.log(err);
         })
     }
     useEffect(() => {
@@ -26,6 +28,8 @@ const Inventory = () => {
         await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory/${id}`).then(() => {
             console.log("in delete")
             fetchinventories();
+        }).catch((err) => {
+            console.log(err);
         })
     }
     const handleDelete = (id) => {
