@@ -19,7 +19,7 @@ import com.dshritama.springapp.service.AppointmentService;
 
 @RestController
 @RequestMapping("/appointment")
-@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins="https://8081-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io")
 
 public class AppointmentController {
     @Autowired

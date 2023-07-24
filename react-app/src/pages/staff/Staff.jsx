@@ -18,7 +18,7 @@ const Staff = () => {
     const [salary, setSalary] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const fetchstaffs = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
+        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
             setStaff(response.data);
         })
     }
@@ -26,7 +26,7 @@ const Staff = () => {
         fetchstaffs();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/${id}`).then(() => {
+        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/${id}`).then(() => {
             console.log("in delete")
             fetchstaffs();
         })
@@ -126,7 +126,7 @@ const Staff = () => {
             salary: salary
         }
         console.log(updatedstaff)
-        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff`, updatedstaff).then(() => {
+        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff`, updatedstaff).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'staff Updated Successfully',
@@ -162,7 +162,7 @@ const Staff = () => {
             salary: salary
         }
         console.log(staff)
-        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff', staff).then((response) => {
+        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff', staff).then((response) => {
             console.log(response.data);
             Swal.fire({
                 icon: 'success',

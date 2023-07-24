@@ -15,7 +15,7 @@ const Pharmacy = () => {
     const [patientId, setPatientId] = useState('')
     const [searchQuery, setSearchQuery] = useState('');
     const fetchpharmacies = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy').then((response) => {
+        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy').then((response) => {
             setPharmacy(response.data);
             console.log(response.data)
         })
@@ -25,7 +25,7 @@ const Pharmacy = () => {
         fetchpharmacies();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy/${id}`).then(() => {
+        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy/${id}`).then(() => {
             console.log("in delete")
             fetchpharmacies();
         })
@@ -83,7 +83,7 @@ const Pharmacy = () => {
             patient_id: patientId
         }
         console.log(updatedpharmacy)
-        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy`, updatedpharmacy).then(() => {
+        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy`, updatedpharmacy).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'pharmacy Updated Successfully',
@@ -107,7 +107,7 @@ const Pharmacy = () => {
             patient_id: patientId
         }
         console.log(pharmacy)
-        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy', pharmacy).then((response) => {
+        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy', pharmacy).then((response) => {
             console.log(response.data);
             Swal.fire({
                 icon: 'success',
