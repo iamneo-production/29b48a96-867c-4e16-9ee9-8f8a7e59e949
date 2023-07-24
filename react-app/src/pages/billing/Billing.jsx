@@ -88,7 +88,7 @@ const Payment = () => {
     await axios.put('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', updatedPayment).then(() => {
       Swal.fire({
         icon: 'success',
-        title: 'Updated',
+        text: 'Updated',
         title: 'Payment Updated Successfully',
         showConfirmButton: false,
         timer: 1000,
