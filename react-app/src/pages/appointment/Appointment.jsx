@@ -227,10 +227,10 @@ const Appointment = () => {
               <input className='form-inputs' type="number" value={id} readOnly />
               <br />
               <label htmlFor="" className='form_label'>Patient ID:</label><br />
-              <input className='form-inputs' type="number" value={patientId} required />
+              <input className='form-inputs' type="number" value={patientId} readOnly />
               <br />
               <label htmlFor="" className='form_label'>Doctor ID:</label><br />
-              <input className='form-inputs' type="number" value={doctorId} required />
+              <input className='form-inputs' type="number" value={doctorId} readOnly />
               <br />
               <label htmlFor="" className='form_label'>Date:</label><br />
               <input className='form-inputs' type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
