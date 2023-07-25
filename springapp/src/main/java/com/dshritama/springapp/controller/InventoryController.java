@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.dshritama.springapp.model.Inventory;
 import com.dshritama.springapp.service.InventoryService;
 
-@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/inventory")
-public class InventoryController {
+@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
 
+public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
 
@@ -54,6 +53,6 @@ public class InventoryController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteInventory(@PathVariable("id") Long id) {
         inventoryService.deleteInventoryById(id);
-        return ResponseEntity.ok("Deleted Successfully");
+        return ResponseEntity.ok("Deleted");
     }
 }
