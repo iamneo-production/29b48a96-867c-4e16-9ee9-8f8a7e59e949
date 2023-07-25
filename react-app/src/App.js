@@ -14,6 +14,7 @@ import Login from './pages/login/Login';
 import useAuth from './pages/login/Auth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import './App.css'
 function App() {
   const { authenticated, login, logout } = useAuth();
   const handleLogout = () => {
@@ -42,7 +43,7 @@ function App() {
   };
   const loginSubmit = async (e, phone, password) => {
     e.preventDefault();
-    await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
+    await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
       if (response.data) {
         var staff = response.data;
         var admin = staff?.find((st) => {
@@ -69,7 +70,7 @@ function App() {
       <div className="dashboard-container">
         <SideBar menu={sidebar_menu} signOut={handleLogout}/>
         <div className="dashboard-body">
-          <Outlet />
+          <Outlet/>
         </div>
       </div>
     );
@@ -78,18 +79,18 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={authenticated ? <Navigate to="/" replace /> : <Login authenticated={authenticated} loginSubmit={loginSubmit} logout={handleLogout} />} />
-        <Route path="*" element={authenticated ? (<DashboardContainer />) : (<Navigate to="/login" replace />)}>
-          <Route index element={<Dashboard />} />
-          <Route path="patients" element={<Patient />} />
-          <Route path="records" element={<MedicalRecords />} />
-          <Route path="staff" element={<Staff />} />
-          <Route path="pharmacy" element={<Pharmacy />} />
-          <Route path="inventory" element={<Inventory />} />
-          <Route path="appointment" element={<Appointment />} />
-          <Route path="billing" element={<Payment />} />
+        <Route path="*" element={authenticated ? (<DashboardContainer/>) : (<Navigate to="/login" replace />)}>
+          <Route index element={<Dashboard/>} />
+          <Route path="patients" element={<Patient/>} />
+          <Route path="records" element={<MedicalRecords/>} />
+          <Route path="staff" element={<Staff/>} />
+          <Route path="pharmacy" element={<Pharmacy/>} />
+          <Route path="inventory" element={<Inventory/>} />
+          <Route path="appointment" element={<Appointment/>} />
+          <Route path="billing" element={<Payment/>} />
           <Route path="*" element={<>Page not found</>}></Route>
         </Route>
-        <Route path="*" element={authenticated ? <DashboardContainer /> : <Navigate to="/login" replace />} />
+        <Route path="*" element={authenticated ? <DashboardContainer/> : <Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );

@@ -19,7 +19,7 @@ import com.dshritama.springapp.service.BillingService;
 
 @RestController
 @RequestMapping("/billing")
-@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins="https://8081-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io")
 
 public class BillingController {
     @Autowired

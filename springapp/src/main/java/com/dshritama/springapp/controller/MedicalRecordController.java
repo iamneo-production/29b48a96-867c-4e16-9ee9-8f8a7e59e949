@@ -22,7 +22,7 @@ import com.dshritama.springapp.service.MedicalRecordService;
 
 @RestController
 @RequestMapping("/medical-records")
-@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins="https://8081-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io")
 public class MedicalRecordController {
     @Autowired
     private  MedicalRecordService medicalRecordService;

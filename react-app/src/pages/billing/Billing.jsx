@@ -15,7 +15,7 @@ const Payment = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const fetchPayments = async () => {
-    await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing').then((response) => {
+    await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing').then((response) => {
       setPayments(response.data);
       console.log(response.data);
     });
@@ -26,7 +26,7 @@ const Payment = () => {
   }, []);
 
   const submitDelete = async (id) => {
-    await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing/${id}`).then(() => {
+    await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing/${id}`).then(() => {
       console.log('Payment deleted');
       fetchPayments();
     });
@@ -85,7 +85,7 @@ const Payment = () => {
       treatment_description: treatmentDescription,
       patient_id: patientId,
     };
-    await axios.put('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', updatedPayment).then(() => {
+    await axios.put('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', updatedPayment).then(() => {
       Swal.fire({
         icon: 'success',
         text: 'Updated',
@@ -109,7 +109,7 @@ const Payment = () => {
       treatment_description: treatmentDescription,
       patient_id: patientId,
     };
-    await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', payment).then((response) => {
+    await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', payment).then((response) => {
       console.log(response.data);
       Swal.fire({
         icon: 'success',
