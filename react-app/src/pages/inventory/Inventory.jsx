@@ -62,7 +62,7 @@ const Inventory = () => {
         setPrice(inventory.price)
         setSupplier(inventory.supplier)
     }
-    const handleNewAppointment = (e) => {
+    const handleNewInventory = (e) => {
         e.preventDefault();
         setAdd(true);
         setEdit(false);
@@ -135,7 +135,7 @@ const Inventory = () => {
     return (
         <div>
             <div className='dashboard-content'>
-                {!edit && !add && <DashboardHeader btnText="New Inventory" onClick={handleNewAppointment} />}
+                {!edit && !add && <DashboardHeader btnText="New Inventory" onClick={handleNewInventory} />}
                 {(edit || add) && <DashboardHeader btnText="Back to Inventory" onClick={handleBack} />}
                 {!edit && !add && <div className='dashboard-content-container'>
                     <div className='dashboard-content-header'>

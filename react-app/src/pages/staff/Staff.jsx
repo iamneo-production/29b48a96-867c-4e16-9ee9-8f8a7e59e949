@@ -305,7 +305,7 @@ const Staff = () => {
                 {add &&
                     <div className='form-elements'>
                         <div className='dashboard-content-header'>
-                            <h2>Add Medical Record</h2>
+                            <h2>Add Staff</h2>
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>

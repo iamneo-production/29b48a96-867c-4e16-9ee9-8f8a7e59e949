@@ -218,7 +218,7 @@ const Pharmacy = () => {
                                 <br />
                                 <label htmlFor="" className='form_label'>Patient Id</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={patientId} required />
+                                <input type="text" name="" id="" className='form-inputs' value={patientId} readOnly />
                                 <br />
                                 <button type="submit" className='save-btn'>Save</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
