@@ -18,7 +18,7 @@ const Patient = () => {
     const [treatmentPlan, setTreatmentPlan] = useState('')
     const [searchQuery, setSearchQuery] = useState('')
     const fetchPatients = async () => {
-        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
+        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
             setPatients(response.data);
         })
 
@@ -27,8 +27,7 @@ const Patient = () => {
         fetchPatients();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${id}`).then(() => {
-            console.log("in delete")
+        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${id}`).then(() => {
             fetchPatients();
         })
     }
@@ -114,8 +113,7 @@ const Patient = () => {
             medicalHistory: medicalHistory,
             treatmentPlan: treatmentPlan
         }
-        console.log(updatedPatient)
-        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient`, updatedPatient).then(() => {
+        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient`, updatedPatient).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'Patient Updated Successfully',
@@ -126,6 +124,11 @@ const Patient = () => {
             clearFields();
             fetchPatients();
         }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
             console.log(err);
         })
     }
@@ -142,9 +145,7 @@ const Patient = () => {
             medicalHistory: medicalHistory,
             treatmentPlan: treatmentPlan
         }
-        console.log(patient)
-        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient', patient).then((response) => {
-            console.log(response.data);
+        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient', patient).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'Patient Added',
@@ -154,6 +155,13 @@ const Patient = () => {
             fetchPatients();
             setAdd(false);
             clearFields();
+        }).catch((err)=>{
+            console.log(err)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
         })
     }
     const clearFields = () => {
@@ -239,43 +247,43 @@ const Patient = () => {
                         </div>
                         <div>
                             <form onSubmit={handleEditSubmit}>
-                                <label htmlFor="">Patient Id</label>
+                                <label htmlFor="pid">Patient Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} readOnly />
+                                <input type="number" id="pid" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} readOnly />
                                 <br />
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="pname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="pname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Age</label>
+                                <label htmlFor="page" className='form_label'>Age</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
+                                <input type="number" id="page" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Gender</label>
+                                <label htmlFor="gen" className='form_label'>Gender</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
+                                <input type="text" name="" id="gen" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Address</label>
+                                <label htmlFor="addr" className='form_label'>Address</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
+                                <input type="text" id="addr" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Phone</label>
+                                <label htmlFor="ph" className='form_label'>Phone</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text" id="ph" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Email</label>
+                                <label htmlFor="em" className='form_label'>Email</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <input type="text" id="em" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Medical History</label>
+                                <label htmlFor="medhis" className='form_label'>Medical History</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={medicalHistory} onChange={(e) => setMedicalHistory(e.target.value)} required />
+                                <input type="text" name="" id="medhis" className='form-inputs' value={medicalHistory} onChange={(e) => setMedicalHistory(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Treatment Plan</label>
+                                <label htmlFor="tplan" className='form_label'>Treatment Plan</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={treatmentPlan} onChange={(e) => setTreatmentPlan(e.target.value)} required />
+                                <input type="text" name="" id="tplan" className='form-inputs' value={treatmentPlan} onChange={(e) => setTreatmentPlan(e.target.value)} required />
                                 <br />
-                                <button type="submit" className='save-btn'>Save</button>
+                                <button type="submit" className='save-btn'>Update</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
 
                             </form>
@@ -290,37 +298,37 @@ const Patient = () => {
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="pname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="pname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Age</label>
+                                <label htmlFor="page" className='form_label'>Age</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
+                                <input type="number" id="page" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Gender</label>
+                                <label htmlFor="gen" className='form_label'>Gender</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
+                                <input type="text" id="gen" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Address</label>
+                                <label htmlFor="addr" className='form_label'>Address</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
+                                <input type="text" id="addr" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Phone</label>
+                                <label htmlFor="ph" className='form_label'>Phone</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text" id="ph" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Email</label>
+                                <label htmlFor="em" className='form_label'>Email</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <input type="text" id="em" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Medical History</label>
+                                <label htmlFor="medhis" className='form_label'>Medical History</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={medicalHistory} onChange={(e) => setMedicalHistory(e.target.value)} required />
+                                <input type="text" id="medhis" className='form-inputs' value={medicalHistory} onChange={(e) => setMedicalHistory(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Treatment Plan</label>
+                                <label htmlFor="tplan" className='form_label'>Treatment Plan</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={treatmentPlan} onChange={(e) => setTreatmentPlan(e.target.value)} required />
+                                <input type="text" id="tplan" className='form-inputs' value={treatmentPlan} onChange={(e) => setTreatmentPlan(e.target.value)} required />
                                 <br />
                                 <button type="submit" className='save-btn'>Save</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>

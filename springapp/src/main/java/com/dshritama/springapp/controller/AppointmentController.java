@@ -31,12 +31,12 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    public Appointment getMedicalRecordById(@PathVariable Long id) {
+    public Appointment getAppointmentById(@PathVariable Long id) {
         return appointmentService.getAppointmentById(id);
     }
 
     @PostMapping
-    public Appointment createMedicalRecord(@RequestBody Appointment appointment) {
+    public Appointment createAppointment(@RequestBody Appointment appointment) {
         return appointmentService.createAppointment(appointment);
     }
 

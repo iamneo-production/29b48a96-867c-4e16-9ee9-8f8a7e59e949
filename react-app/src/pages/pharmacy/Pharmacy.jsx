@@ -15,9 +15,8 @@ const Pharmacy = () => {
     const [patientId, setPatientId] = useState('')
     const [searchQuery, setSearchQuery] = useState('');
     const fetchpharmacies = async () => {
-        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy').then((response) => {
+        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy').then((response) => {
             setPharmacy(response.data);
-            console.log(response.data)
         })
 
     }
@@ -25,8 +24,7 @@ const Pharmacy = () => {
         fetchpharmacies();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy/${id}`).then(() => {
-            console.log("in delete")
+        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy/${id}`).then(() => {
             fetchpharmacies();
         })
     }
@@ -82,8 +80,7 @@ const Pharmacy = () => {
             prescription_number: prescriptionNumber,
             patient_id: patientId
         }
-        console.log(updatedpharmacy)
-        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy`, updatedpharmacy).then(() => {
+        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy`, updatedpharmacy).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'pharmacy Updated Successfully',
@@ -94,6 +91,11 @@ const Pharmacy = () => {
             clearFields();
             fetchpharmacies();
         }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
             console.log(err);
         })
     }
@@ -106,9 +108,7 @@ const Pharmacy = () => {
             prescription_number: prescriptionNumber,
             patient_id: patientId
         }
-        console.log(pharmacy)
-        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy', pharmacy).then((response) => {
-            console.log(response.data);
+        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/pharmacy', pharmacy).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'pharmacy Added',
@@ -119,6 +119,11 @@ const Pharmacy = () => {
             setAdd(false);
             clearFields();
         }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
             console.log(err);
         })
     }
@@ -196,31 +201,31 @@ const Pharmacy = () => {
                         </div>
                         <div>
                             <form onSubmit={handleEditSubmit}>
-                                <label htmlFor="">Pharmacy Id</label>
+                                <label htmlFor="phid">Pharmacy Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={id} onChange={(e) => setId(e.target.value)} readOnly />
+                                <input type="number" id="" className='form-inputs' value={id} onChange={(e) => setId(e.target.value)} readOnly />
                                 <br />
-                                <label htmlFor="" className='form_label'>Medication Name</label>
+                                <label htmlFor="mname" className='form_label'>Medication Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="mname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Dosage</label>
+                                <label htmlFor="mdosage" className='form_label'>Dosage</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={dosage} onChange={(e) => setDosage(e.target.value)} required />
+                                <input type="text" id="mdosage" className='form-inputs' value={dosage} onChange={(e) => setDosage(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Refill Date</label>
+                                <label htmlFor="rdate" className='form_label'>Refill Date</label>
                                 <br />
-                                <input type="date" name="" id="" className='form-inputs' value={refillDate} onChange={(e) => setRefillDate(e.target.value)} required />
+                                <input type="date" id="rdate" className='form-inputs' value={refillDate} onChange={(e) => setRefillDate(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Prescription Number</label>
+                                <label htmlFor="pnumber" className='form_label'>Prescription Number</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={prescriptionNumber} onChange={(e) => setPrescriptionNumber(e.target.value)} required />
+                                <input type="number" id="pnumber" className='form-inputs' value={prescriptionNumber} onChange={(e) => setPrescriptionNumber(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Patient Id</label>
+                                <label htmlFor="pid" className='form_label'>Patient Id</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={patientId} required />
+                                <input type="text" id="pid" className='form-inputs' value={patientId} readOnly />
                                 <br />
-                                <button type="submit" className='save-btn'>Save</button>
+                                <button type="submit" className='save-btn'>Update</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
                             </form>
                         </div>
@@ -234,25 +239,25 @@ const Pharmacy = () => {
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>
-                                <label htmlFor="" className='form_label'>Medication Name</label>
+                                <label htmlFor="mname" className='form_label'>Medication Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="mname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Dosage</label>
+                                <label htmlFor="mdosage" className='form_label'>Dosage</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={dosage} onChange={(e) => setDosage(e.target.value)} required />
+                                <input type="text" id="mdosage" className='form-inputs' value={dosage} onChange={(e) => setDosage(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Refill Date</label>
+                                <label htmlFor="rdate" className='form_label'>Refill Date</label>
                                 <br />
-                                <input type="date" name="" id="" className='form-inputs' value={refillDate} onChange={(e) => setRefillDate(e.target.value)} required />
+                                <input type="date" id="rdate" className='form-inputs' value={refillDate} onChange={(e) => setRefillDate(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Prescription Number</label>
+                                <label htmlFor="pnumber" className='form_label'>Prescription Number</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={prescriptionNumber} onChange={(e) => setPrescriptionNumber(e.target.value)} required />
+                                <input type="number" id="pnumber" className='form-inputs' value={prescriptionNumber} onChange={(e) => setPrescriptionNumber(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Patient Id</label>
+                                <label htmlFor="pid" className='form_label'>Patient Id</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
+                                <input type="text" id="pid" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
                                 <br />
                                 <button type="submit" className='save-btn'>Save</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>

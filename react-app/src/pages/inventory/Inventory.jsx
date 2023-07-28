@@ -15,7 +15,7 @@ const Inventory = () => {
     const [supplier, setSupplier] = useState('')
     const [searchQuery, setSearchQuery] = useState('');
     const fetchinventories = async () => {
-        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
+        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
             setInventories(response.data);
         }).catch((err) => {
             console.log(err);
@@ -25,8 +25,7 @@ const Inventory = () => {
         fetchinventories();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory/${id}`).then(() => {
-            console.log("in delete")
+        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory/${id}`).then(() => {
             fetchinventories();
         }).catch((err) => {
             console.log(err);
@@ -62,7 +61,7 @@ const Inventory = () => {
         setPrice(inventory.price)
         setSupplier(inventory.supplier)
     }
-    const handleNewAppointment = (e) => {
+    const handleNewInventory = (e) => {
         e.preventDefault();
         setAdd(true);
         setEdit(false);
@@ -84,8 +83,7 @@ const Inventory = () => {
             price: price,
             supplier: supplier
         }
-        console.log(updatedinventory)
-        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory`, updatedinventory).then(() => {
+        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory`, updatedinventory).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'Updated',
@@ -97,6 +95,11 @@ const Inventory = () => {
             clearFields();
             fetchinventories();
         }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
             console.log(err);
         })
     }
@@ -109,9 +112,7 @@ const Inventory = () => {
             price: price,
             supplier: supplier
         }
-        console.log(inventory)
-        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory', inventory).then((response) => {
-            console.log(response.data);
+        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory', inventory).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'inventory Added',
@@ -122,7 +123,13 @@ const Inventory = () => {
             setAdd(false);
             clearFields();
         }).catch((err) => {
+            
             console.log(err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
         })
     }
     const clearFields = () => {
@@ -135,7 +142,7 @@ const Inventory = () => {
     return (
         <div>
             <div className='dashboard-content'>
-                {!edit && !add && <DashboardHeader btnText="New Inventory" onClick={handleNewAppointment} />}
+                {!edit && !add && <DashboardHeader btnText="New Inventory" onClick={handleNewInventory} />}
                 {(edit || add) && <DashboardHeader btnText="Back to Inventory" onClick={handleBack} />}
                 {!edit && !add && <div className='dashboard-content-container'>
                     <div className='dashboard-content-header'>
@@ -198,31 +205,31 @@ const Inventory = () => {
                         </div>
                         <div>
                             <form onSubmit={handleEditSubmit}>
-                                <label htmlFor="">Inventory Id</label>
+                                <label htmlFor="invid">Inventory Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={id} onChange={(e) => setId(e.target.value)} readOnly />
+                                <input type="number"  id="invid" className='form-inputs' value={id} onChange={(e) => setId(e.target.value)} readOnly />
                                 <br />
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="iname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="iname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Quantity</label>
+                                <label htmlFor="iquantity" className='form_label'>Quantity</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
+                                <input type="number" id="iquantity" className='form-inputs' value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Category</label>
+                                <label htmlFor="cat" className='form_label'>Category</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={category} onChange={(e) => setCategory(e.target.value)} required />
+                                <input type="text" id="cat" className='form-inputs' value={category} onChange={(e) => setCategory(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Price</label>
+                                <label htmlFor="iprice" className='form_label'>Price</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={price} onChange={(e) => setPrice(e.target.value)} required />
+                                <input type="number" id="iprice" className='form-inputs' value={price} onChange={(e) => setPrice(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Supplier</label>
+                                <label htmlFor="supp" className='form_label'>Supplier</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={supplier} onChange={(e) => setSupplier(e.target.value)} required />
+                                <input type="text" id="supp" className='form-inputs' value={supplier} onChange={(e) => setSupplier(e.target.value)} required />
                                 <br />
-                                <button type="submit" className='save-btn'>Save</button>
+                                <button type="submit" className='save-btn'>Update</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
                             </form>
                         </div>
@@ -236,27 +243,27 @@ const Inventory = () => {
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="iname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" id="iname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Quantity</label>
+                                <label htmlFor="iquantity" className='form_label'>Quantity</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
+                                <input type="number" id="iquantity" className='form-inputs' value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Category</label>
+                                <label htmlFor="cat" className='form_label'>Category</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={category} onChange={(e) => setCategory(e.target.value)} required />
+                                <input type="text" id="cat" className='form-inputs' value={category} onChange={(e) => setCategory(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Price</label>
+                                <label htmlFor="iprice" className='form_label'>Price</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={price} onChange={(e) => setPrice(e.target.value)} required />
+                                <input type="number" id="iprice" className='form-inputs' value={price} onChange={(e) => setPrice(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Supplier</label>
+                                <label htmlFor="supp" className='form_label'>Supplier</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={supplier} onChange={(e) => setSupplier(e.target.value)} required />
+                                <input type="text" id="supp" className='form-inputs' value={supplier} onChange={(e) => setSupplier(e.target.value)} required />
                                 <br />
-                                <button type="submit" className='save-btn'>Save</button>
+                                <button type="submit" className='save-btn'>Add</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
                             </form>
                         </div>

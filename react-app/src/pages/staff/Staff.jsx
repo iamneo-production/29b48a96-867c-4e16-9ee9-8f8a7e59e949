@@ -18,7 +18,7 @@ const Staff = () => {
     const [salary, setSalary] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const fetchstaffs = async () => {
-        await axios.get('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
+        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
             setStaff(response.data);
         })
     }
@@ -26,8 +26,7 @@ const Staff = () => {
         fetchstaffs();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/${id}`).then(() => {
-            console.log("in delete")
+        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/${id}`).then(() => {
             fetchstaffs();
         })
     }
@@ -52,15 +51,6 @@ const Staff = () => {
             }
         })
     }
-    /* const isValidPhoneNumber = (phoneNumber) => {
-        const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-        return phoneRegex.test(phoneNumber);
-      };
-    
-      const isValidEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-      }; */
     const handleEdit = (staff) => {
         setEdit(true);
         setName(staff.name)
@@ -105,15 +95,6 @@ const Staff = () => {
     };
     const handleEditSubmit = async (e) => {
         e.preventDefault();
-        // Validate phone number and email
-        /*  if (!isValidPhoneNumber(phone) || !isValidEmail(email)) {
-             Swal.fire({
-               icon: 'error',
-               title: 'Invalid phone number or email',
-               text: 'Please enter a valid phone number and email address',
-             });
-             return;
-           } */
         const updatedstaff = {
             id: staffId,
             name: name,
@@ -125,8 +106,7 @@ const Staff = () => {
             jobTitle: jobTitle,
             salary: salary
         }
-        console.log(updatedstaff)
-        await axios.put(`https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff`, updatedstaff).then(() => {
+        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff`, updatedstaff).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'staff Updated Successfully',
@@ -137,20 +117,16 @@ const Staff = () => {
             clearFields();
             fetchstaffs();
         }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
             console.log(err);
         })
     }
     const handleAddSubmit = async (e) => {
         e.preventDefault();
-        // Validate phone number and email
-        /*  if (!isValidPhoneNumber(phone) || !isValidEmail(email)) {
-             Swal.fire({
-               icon: 'error',
-               title: 'Invalid phone number or email',
-               text: 'Please enter a valid phone number and email address',
-             });
-             return;
-           } */
         const staff = {
             name: name,
             age: age,
@@ -161,9 +137,7 @@ const Staff = () => {
             jobTitle: jobTitle,
             salary: salary
         }
-        console.log(staff)
-        await axios.post('https://8080-feceaeedabbcfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff', staff).then((response) => {
-            console.log(response.data);
+        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff', staff).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'staff Added',
@@ -173,6 +147,14 @@ const Staff = () => {
             fetchstaffs();
             setAdd(false);
             clearFields();
+        }).catch((err)=>{
+            
+            console.log(err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong.Please check the details',
+            })
         })
     }
     const clearFields = () => {
@@ -259,43 +241,43 @@ const Staff = () => {
                         </div>
                         <div>
                             <form onSubmit={handleEditSubmit}>
-                                <label htmlFor="">staff Id</label>
+                                <label htmlFor="sid">staff Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={staffId} onChange={(e) => setstaffId(e.target.value)} readOnly />
+                                <input type="number"  id="sid" className='form-inputs' value={staffId} onChange={(e) => setstaffId(e.target.value)} readOnly />
                                 <br />
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="sname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text"  id="sname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Age</label>
+                                <label htmlFor="sage" className='form_label'>Age</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
+                                <input type="number"  id="sage" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Gender</label>
+                                <label htmlFor="gen" className='form_label'>Gender</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
+                                <input type="text"  id="gen" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Address</label>
+                                <label htmlFor="addr" className='form_label'>Address</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
+                                <input type="text"  id="addr" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Phone</label>
+                                <label htmlFor="ph" className='form_label'>Phone</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text"  id="ph" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Email</label>
+                                <label htmlFor="em" className='form_label'>Email</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <input type="text"  id="em" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Job Title</label>
+                                <label htmlFor="jtitle" className='form_label'>Job Title</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
+                                <input type="text"  id="jtitle" className='form-inputs' value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Salary</label>
+                                <label htmlFor="sal" className='form_label'>Salary</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={salary} onChange={(e) => setSalary(e.target.value)} required />
+                                <input type="number"  id="sal" className='form-inputs' value={salary} onChange={(e) => setSalary(e.target.value)} required />
                                 <br />
-                                <button type="submit" className='save-btn'>Save</button>
+                                <button type="submit" className='save-btn'>Update</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
                             </form>
                         </div>
@@ -305,41 +287,41 @@ const Staff = () => {
                 {add &&
                     <div className='form-elements'>
                         <div className='dashboard-content-header'>
-                            <h2>Add Medical Record</h2>
+                            <h2>Add Staff</h2>
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>
-                                <label htmlFor="" className='form_label'>Name</label>
+                                <label htmlFor="sname" className='form_label'>Name</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text"  id="sname" className='form-inputs' value={name} onChange={(e) => setName(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Age</label>
+                                <label htmlFor="sage" className='form_label'>Age</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
+                                <input type="number"  id="sage" className='form-inputs' value={age} onChange={(e) => setAge(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Gender</label>
+                                <label htmlFor="gen" className='form_label'>Gender</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
+                                <input type="text"  id="gen" className='form-inputs' value={gender} onChange={(e) => setGender(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Address</label>
+                                <label htmlFor="addr" className='form_label'>Address</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
+                                <input type="text"  id="addr" className='form-inputs' value={address} onChange={(e) => setAddress(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Phone</label>
+                                <label htmlFor="ph" className='form_label'>Phone</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text"  id="ph" className='form-inputs' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Email</label>
+                                <label htmlFor="em" className='form_label'>Email</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <input type="text"  id="em" className='form-inputs' value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Job Title</label>
+                                <label htmlFor="jtitle" className='form_label'>Job Title</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
+                                <input type="text"  id="jtitle" className='form-inputs' value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Salary</label>
+                                <label htmlFor="sal" className='form_label'>Salary</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={salary} onChange={(e) => setSalary(e.target.value)} required />
+                                <input type="text"  id="sal" className='form-inputs' value={salary} onChange={(e) => setSalary(e.target.value)} required />
                                 <br />
                                 <button type="submit" className='save-btn'>Save</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
