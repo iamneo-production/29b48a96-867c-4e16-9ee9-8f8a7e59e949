@@ -28,7 +28,6 @@ const MedicalRecord = () => {
     }, []);
     const SubmitDelete = async (id) => {
         await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records/${id}`).then(() => {
-            console.log("in delete")
             fetchRecords();
         })
     }
@@ -116,7 +115,6 @@ const MedicalRecord = () => {
     const handleEditSubmit = async (e) => {
         e.preventDefault();
         const formattedDate = new Date(date).toISOString().split('T')[0];
-        console.log(date);
         const updatedRecord = {
             id: recordId,
             patient_id: patientId,
@@ -141,7 +139,7 @@ const MedicalRecord = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Invalid Patient Id or Doctor Id',
+                text: 'Something went wrong.Please check the details',
             })
         })
     }
@@ -156,9 +154,7 @@ const MedicalRecord = () => {
             prescription: prescription,
             notes: notes
         }
-        console.log(record)
         await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records', record).then((response) => {
-            console.log(response.data);
             Swal.fire({
                 icon: 'success',
                 title: 'Record Added',
@@ -173,7 +169,7 @@ const MedicalRecord = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Invalid Patient Id or Doctor Id',
+                text: 'Something went wrong.Please check the details',
             })
         })
     }
@@ -266,33 +262,33 @@ const MedicalRecord = () => {
                         </div>
                         <div>
                             <form onSubmit={handleEditSubmit}>
-                                <label htmlFor="">Record Id</label>
+                                <label htmlFor="rid">Record Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={recordId} disabled />
+                                <input type="number" id="rid" className='form-inputs' value={recordId} disabled />
                                 <br />
-                                <label htmlFor="">Patient Id</label>
+                                <label htmlFor="pid">Patient Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
+                                <input type="number" id="pid" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Doctor Id</label>
+                                <label htmlFor="did" className='form_label'>Doctor Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
+                                <input type="number" id="did" className='form-inputs' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Date Of Record</label>
+                                <label htmlFor="rdate" className='form_label'>Date Of Record</label>
                                 <br />
-                                <input type="date" name="" id="" className='form-inputs' value={date} onChange={(e) => setDate(e.target.value)} required />
+                                <input type="date" id="rdate" className='form-inputs' value={date} onChange={(e) => setDate(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Dignosis</label>
+                                <label htmlFor="diag" className='form_label'>Diagnosis</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={diagnosis} onChange={(e) => setDiagnosis(e.target.value)} required />
+                                <input type="text" id="diag" className='form-inputs' value={diagnosis} onChange={(e) => setDiagnosis(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Prescription</label>
+                                <label htmlFor="pres" className='form_label'>Prescription</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={prescription} onChange={(e) => setPrescription(e.target.value)} required />
+                                <input type="text" id="pres" className='form-inputs' value={prescription} onChange={(e) => setPrescription(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Notes</label>
+                                <label htmlFor="rnotes" className='form_label'>Notes</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={notes} onChange={(e) => setNotes(e.target.value)} required />
+                                <input type="text" name="" id="rnotes" className='form-inputs' value={notes} onChange={(e) => setNotes(e.target.value)} required />
                                 <br />
                                 <button type="submit" className='save-btn'>Update</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
@@ -309,29 +305,29 @@ const MedicalRecord = () => {
                         </div>
                         <div>
                             <form onSubmit={handleAddSubmit}>
-                                <label htmlFor="">Patient Id</label>
+                                <label htmlFor="pid">Patient Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
+                                <input type="number" id="pid" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Doctor Id</label>
+                                <label htmlFor="did" className='form_label'>Doctor Id</label>
                                 <br />
-                                <input type="number" name="" id="" className='form-inputs' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
+                                <input type="number" id="did" className='form-inputs' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Date Of Record</label>
+                                <label htmlFor="rdate" className='form_label'>Date Of Record</label>
                                 <br />
-                                <input type="date" name="" id="" className='form-inputs' value={date} onChange={(e) => setDate(e.target.value)} required />
+                                <input type="date" id="rdate" className='form-inputs' value={date} onChange={(e) => setDate(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Dignosis</label>
+                                <label htmlFor="diag" className='form_label'>Diagnosis</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={diagnosis} onChange={(e) => setDiagnosis(e.target.value)} required />
+                                <input type="text" id="diag" className='form-inputs' value={diagnosis} onChange={(e) => setDiagnosis(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Prescription</label>
+                                <label htmlFor="pres" className='form_label'>Prescription</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={prescription} onChange={(e) => setPrescription(e.target.value)} required />
+                                <input type="text" id="pres" className='form-inputs' value={prescription} onChange={(e) => setPrescription(e.target.value)} required />
                                 <br />
-                                <label htmlFor="" className='form_label'>Notes</label>
+                                <label htmlFor="rnotes" className='form_label'>Notes</label>
                                 <br />
-                                <input type="text" name="" id="" className='form-inputs' value={notes} onChange={(e) => setNotes(e.target.value)} required />
+                                <input type="text" id="rnotes" className='form-inputs' value={notes} onChange={(e) => setNotes(e.target.value)} required />
                                 <br />
                                 <button type="submit" className='save-btn'>Save</button>
                                 <button className='back-btn' onClick={handleBack}>Cancel</button>
