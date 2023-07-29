@@ -17,7 +17,6 @@ const Payment = () => {
   const fetchPayments = async () => {
     await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing').then((response) => {
       setPayments(response.data);
-      console.log(response.data);
     });
   };
 
@@ -27,7 +26,6 @@ const Payment = () => {
 
   const submitDelete = async (id) => {
     await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing/${id}`).then(() => {
-      console.log('Payment deleted');
       fetchPayments();
     });
   };
@@ -97,6 +95,11 @@ const Payment = () => {
       clearFields();
       fetchPayments();
     }).catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong.Please check the details',
+    })
       console.log(err);
     });
   };
@@ -110,7 +113,6 @@ const Payment = () => {
       patient_id: patientId,
     };
     await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/billing', payment).then((response) => {
-      console.log(response.data);
       Swal.fire({
         icon: 'success',
         title: 'Payment Added',
@@ -122,6 +124,11 @@ const Payment = () => {
       clearFields();
     }).catch((err) => {
       console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong.Please check the details',
+    })
     });
   };
 
@@ -197,17 +204,17 @@ const Payment = () => {
               <h2>Edit Payment Details</h2>
             </div>
             <form onSubmit={handleEditSubmit}>
-              <label htmlFor="" className='form_label'>Payment ID:</label><br />
-              <input type="text" value={id} className='form-inputs' onChange={(e) => setId(e.target.value)} readOnly />
-              <br /><label htmlFor="" className='form_label'>Date:</label><br />
-              <input type="date" value={date} className='form-inputs' onChange={(e) => setDate(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Amount:</label><br />
-              <input type="text" value={amount} className='form-inputs' onChange={(e) => setAmount(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Treatment Description:</label><br />
-              <input type="text" value={treatmentDescription} className='form-inputs' onChange={(e) => setTreatmentDescription(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Patient ID:</label><br />
-              <input type="text" value={patientId} className='form-inputs' required />
-              <br /><button type="submit" className="save-btn">Save</button>
+              <label htmlFor="paymentid" className='form_label'>Payment ID:</label><br />
+              <input type="text" value={id} id="paymentid" className='form-inputs' onChange={(e) => setId(e.target.value)} readOnly />
+              <br /><label htmlFor="pdate" className='form_label'>Date:</label><br />
+              <input type="date" value={date} id="pdate" className='form-inputs' onChange={(e) => setDate(e.target.value)} required />
+              <br /><label htmlFor="amount" className='form_label'>Amount:</label><br />
+              <input type="text" value={amount} id="amount" className='form-inputs' onChange={(e) => setAmount(e.target.value)} required />
+              <br /><label htmlFor="desc" className='form_label'>Treatment Description:</label><br />
+              <input type="text" value={treatmentDescription} id="desc" className='form-inputs' onChange={(e) => setTreatmentDescription(e.target.value)} required />
+              <br /><label htmlFor="patientid" className='form_label'>Patient ID:</label><br />
+              <input type="text" value={patientId} id="patientid" className='form-inputs' required />
+              <br /><button type="submit" className="save-btn">Update</button>
               <button className="back-btn" onClick={handleBack}>Cancel</button>
             </form>
           </div>
@@ -218,14 +225,14 @@ const Payment = () => {
               <h2>Add Payment</h2>
             </div>
             <form onSubmit={handleAddSubmit}>
-              <label htmlFor="" className='form_label'>Date:</label><br />
-              <input type="date" value={date} className='form-inputs' onChange={(e) => setDate(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Amount:</label><br />
-              <input type="number" className='form-inputs' value={amount} onChange={(e) => setAmount(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Treatment Description:</label><br />
-              <input type="text" className='form-inputs' value={treatmentDescription} onChange={(e) => setTreatmentDescription(e.target.value)} required />
-              <br /><label htmlFor="" className='form_label'>Patient ID:</label><br />
-              <input type="number" className='form-inputs' value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
+              <label htmlFor="pdate" className='form_label'>Date:</label><br />
+              <input type="date" value={date} id="pdate" className='form-inputs' onChange={(e) => setDate(e.target.value)} required />
+              <br /><label htmlFor="amount" className='form_label'>Amount:</label><br />
+              <input type="number" className='form-inputs' id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+              <br /><label htmlFor="desc" className='form_label'>Treatment Description:</label><br />
+              <input type="text" className='form-inputs' id="desc" value={treatmentDescription} onChange={(e) => setTreatmentDescription(e.target.value)} required />
+              <br /><label htmlFor="patientid" className='form_label'>Patient ID:</label><br />
+              <input type="number" className='form-inputs' id="patientid" value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
               <br /><button type="submit" className="save-btn">Save</button>
               <button className="back-btn" onClick={handleBack}>Cancel</button>
             </form>

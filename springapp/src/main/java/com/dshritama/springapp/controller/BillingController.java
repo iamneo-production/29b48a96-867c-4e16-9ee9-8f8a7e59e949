@@ -36,7 +36,7 @@ public class BillingController {
     }
 
     @PostMapping
-    public Billing createMedicalRecord(@RequestBody Billing bill) {
+    public Billing createBill(@RequestBody Billing bill) {
         return billingService.createBill(bill);
     }
 
