@@ -20,7 +20,6 @@ const Appointment = () => {
   const fetchAppointments = async () => {
     await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment').then((response) => {
       setAppointments(response.data);
-      console.log(response.data);
     }).catch((err)=>{
       console.log(err);
     })
@@ -32,7 +31,6 @@ const Appointment = () => {
 
   const submitDelete = async (id) => {
     await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment/${id}`).then(() => {
-      console.log('Appointment deleted');
       fetchAppointments();
     });
   };
@@ -107,6 +105,11 @@ const Appointment = () => {
       clearFields();
       fetchAppointments();
     }).catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong.Please check the details',
+    })
       console.log(err);
     });
   };
@@ -122,7 +125,6 @@ const Appointment = () => {
       status: status,
     };
     await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment', appointment).then((response) => {
-      console.log(response.data);
       Swal.fire({
         icon: 'success',
         title: 'Appointment Added',
@@ -133,6 +135,11 @@ const Appointment = () => {
       setAdd(false);
       clearFields();
     }).catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong.Please check the details',
+    })
       console.log(err);
     });
   };
@@ -223,28 +230,28 @@ const Appointment = () => {
               <h2>Edit Appointment Details</h2>
             </div>
             <form onSubmit={handleEditSubmit}>
-              <label htmlFor="" className='form_label'>Appointment ID:</label><br />
-              <input className='form-inputs' type="number" value={id} readOnly />
+              <label htmlFor="id" className='form_label'>Appointment ID:</label><br />
+              <input className='form-inputs' id="id" type="number" value={id} readOnly />
               <br />
-              <label htmlFor="" className='form_label'>Patient ID:</label><br />
-              <input className='form-inputs' type="number" value={patientId} required />
+              <label htmlFor="patientid" className='form_label'>Patient ID:</label><br />
+              <input className='form-inputs' id="patientid" type="number" value={patientId} readOnly />
               <br />
-              <label htmlFor="" className='form_label'>Doctor ID:</label><br />
-              <input className='form-inputs' type="number" value={doctorId} required />
+              <label htmlFor="doctorid" className='form_label'>Doctor ID:</label><br />
+              <input className='form-inputs' id="doctorid" type="number" value={doctorId} readOnly />
               <br />
-              <label htmlFor="" className='form_label'>Date:</label><br />
-              <input className='form-inputs' type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+              <label htmlFor="appdate" className='form_label'>Date:</label><br />
+              <input className='form-inputs' id="appdate" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Time:</label><br />
-              <input className='form-inputs' type="text" value={time} onChange={(e) => setTime(e.target.value)} required />
+              <label htmlFor="apptime" className='form_label'>Time:</label><br />
+              <input className='form-inputs' type="text" id="apptime" value={time} onChange={(e) => setTime(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Duration:</label><br />
-              <input className='form-inputs' type="text" value={duration} onChange={(e) => setDuration(e.target.value)} required />
+              <label htmlFor="duration" className='form_label'>Duration:</label><br />
+              <input className='form-inputs' id="duration" type="text" value={duration} onChange={(e) => setDuration(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Status:</label><br />
-              <input className='form-inputs' type="text" value={status} onChange={(e) => setStatus(e.target.value)} required />
+              <label htmlFor="status" className='form_label'>Status:</label><br />
+              <input className='form-inputs' id="status" type="text" value={status} onChange={(e) => setStatus(e.target.value)} required />
               <br />
-              <button type="submit" className="save-btn">Save</button>
+              <button type="submit" className="save-btn">Update</button>
               <button className="back-btn" onClick={handleBack}>Cancel</button>
             </form>
           </div>
@@ -255,23 +262,23 @@ const Appointment = () => {
               <h2>Add Appointment</h2>
             </div>
             <form onSubmit={handleAddSubmit}>
-              <label htmlFor="" className='form_label'>Patient ID:</label><br />
-              <input className='form-inputs' type="text" value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
+              <label htmlFor="patientid" className='form_label'>Patient ID:</label><br />
+              <input className='form-inputs' id="patientid" type="text" value={patientId} onChange={(e) => setPatientId(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Doctor ID:</label><br />
-              <input className='form-inputs' type="text" value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
+              <label htmlFor="doctorid" className='form_label'>Doctor ID:</label><br />
+              <input className='form-inputs' id="doctorid" type="text" value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Date:</label><br />
-              <input className='form-inputs' type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+              <label htmlFor="appdate" className='form_label'>Date:</label><br />
+              <input className='form-inputs' id="appdate" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Time:</label><br />
-              <input className='form-inputs' type="text" value={time} onChange={(e) => setTime(e.target.value)} required />
+              <label htmlFor="apptime" className='form_label'>Time:</label><br />
+              <input className='form-inputs' type="text" id="apptime" value={time} onChange={(e) => setTime(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Duration:</label><br />
-              <input className='form-inputs' type="text" value={duration} onChange={(e) => setDuration(e.target.value)} required />
+              <label htmlFor="duration" className='form_label'>Duration:</label><br />
+              <input className='form-inputs' type="text" id="duration" value={duration} onChange={(e) => setDuration(e.target.value)} required />
               <br />
-              <label htmlFor="" className='form_label'>Status:</label><br />
-              <input className='form-inputs' type="text" value={status} onChange={(e) => setStatus(e.target.value)} required />
+              <label htmlFor="status" className='form_label'>Status:</label><br />
+              <input className='form-inputs' type="text" id="status" value={status} onChange={(e) => setStatus(e.target.value)} required />
               <br />
               <button type="submit" className="save-btn">Save</button>
               <button className="back-btn" onClick={handleBack}>Cancel</button>
