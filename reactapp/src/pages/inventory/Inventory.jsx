@@ -15,7 +15,7 @@ const Inventory = () => {
     const [supplier, setSupplier] = useState('')
     const [searchQuery, setSearchQuery] = useState('');
     const fetchinventories = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
             setInventories(response.data);
         }).catch((err) => {
             console.log(err);
@@ -25,7 +25,7 @@ const Inventory = () => {
         fetchinventories();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory/${id}`).then(() => {
+        await axios.delete(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory/${id}`).then(() => {
             fetchinventories();
         }).catch((err) => {
             console.log(err);
@@ -83,7 +83,7 @@ const Inventory = () => {
             price: price,
             supplier: supplier
         }
-        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory`, updatedinventory).then(() => {
+        await axios.put(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory`, updatedinventory).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'Updated',
@@ -112,7 +112,7 @@ const Inventory = () => {
             price: price,
             supplier: supplier
         }
-        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory', inventory).then((response) => {
+        await axios.post('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory', inventory).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'inventory Added',

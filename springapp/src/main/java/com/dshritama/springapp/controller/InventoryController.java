@@ -20,7 +20,7 @@ import com.dshritama.springapp.service.InventoryService;
 
 @RestController
 @RequestMapping("/inventory")
-@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins="https://8081-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/")
 
 public class InventoryController {
     @Autowired

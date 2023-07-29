@@ -8,7 +8,7 @@ const Dashboard=()=>{
     const [inventory, setInventories] = useState([]);
 	const[records,setRecords]=useState([])
     const fetchPatients = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
             setPatients(response.data);
         }).catch((err)=>{
 
@@ -16,28 +16,28 @@ const Dashboard=()=>{
         
     }
     const fetchstaffs = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff').then((response) => {
             setStaff(response.data);
         }).catch((err)=>{
 
         })
     }
     const fetchAppointments = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/').then((response) => {
           setAppointments(response.data);
         }).catch((err)=>{
 
         })
       };
       const fetchinventories = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/inventory').then((response) => {
             setInventories(response.data);
         }).catch((err)=>{
             
         })
     }
 	const fetchMedicalrecords=async()=>{
-		await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records').then((response)=>{
+		await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records').then((response)=>{
 			setRecords(response.data)
 		}).catch((err)=>{
 

@@ -17,7 +17,7 @@ const MedicalRecord = () => {
     const [prescription, setPrescription] = useState('')
     const [searchQuery, setSearchQuery] = useState('');
     const fetchRecords = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records').then((response) => {
             setRecords(response.data);
         }).catch((err) => {
             console.log(err);
@@ -27,7 +27,7 @@ const MedicalRecord = () => {
         fetchRecords();
     }, []);
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records/${id}`).then(() => {
+        await axios.delete(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records/${id}`).then(() => {
             fetchRecords();
         })
     }
@@ -82,8 +82,8 @@ const MedicalRecord = () => {
     const loadData = async (record) => {
         try {
             const [patientResponse, doctorResponse] = await Promise.all([
-                axios.get(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${record.patient_id}`),
-                axios.get(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/doctor/${record.doctor_id}`)
+                axios.get(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${record.patient_id}`),
+                axios.get(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/staff/doctor/${record.doctor_id}`)
             ]);
 
             const patientData = patientResponse.data;
@@ -125,7 +125,7 @@ const MedicalRecord = () => {
             notes: notes
         }
 
-        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records`, updatedRecord).then(() => {
+        await axios.put(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records`, updatedRecord).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'Record Updated Successfully',
@@ -154,7 +154,7 @@ const MedicalRecord = () => {
             prescription: prescription,
             notes: notes
         }
-        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records', record).then((response) => {
+        await axios.post('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/medical-records', record).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'Record Added',

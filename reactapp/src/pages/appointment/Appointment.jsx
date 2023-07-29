@@ -18,7 +18,7 @@ const Appointment = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const fetchAppointments = async () => {
-    await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment').then((response) => {
+    await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment').then((response) => {
       setAppointments(response.data);
     }).catch((err)=>{
       console.log(err);
@@ -30,7 +30,7 @@ const Appointment = () => {
   }, []);
 
   const submitDelete = async (id) => {
-    await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment/${id}`).then(() => {
+    await axios.delete(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment/${id}`).then(() => {
       fetchAppointments();
     });
   };
@@ -93,7 +93,7 @@ const Appointment = () => {
       duration: duration,
       status: status,
     };
-    await axios.put('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment', updatedAppointment).then(() => {
+    await axios.put('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment', updatedAppointment).then(() => {
       Swal.fire({
         icon: 'success',
         text: 'Updated',
@@ -124,7 +124,7 @@ const Appointment = () => {
       duration: duration,
       status: status,
     };
-    await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment', appointment).then((response) => {
+    await axios.post('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/appointment', appointment).then((response) => {
       Swal.fire({
         icon: 'success',
         title: 'Appointment Added',

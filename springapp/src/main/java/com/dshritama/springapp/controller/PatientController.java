@@ -20,7 +20,7 @@ import com.dshritama.springapp.service.PatientService;
 
 @RestController
 @RequestMapping("/patient")
-@CrossOrigin(origins="https://8081-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins="https://8081-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/")
 
 public class PatientController {
 

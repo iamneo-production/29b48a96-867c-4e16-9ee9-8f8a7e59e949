@@ -18,7 +18,7 @@ const Patient = () => {
     const [treatmentPlan, setTreatmentPlan] = useState('')
     const [searchQuery, setSearchQuery] = useState('')
     const fetchPatients = async () => {
-        await axios.get('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
+        await axios.get('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient').then((response) => {
             setPatients(response.data);
         })
 
@@ -27,7 +27,7 @@ const Patient = () => {
         fetchPatients();
     }, [])
     const SubmitDelete = async (id) => {
-        await axios.delete(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${id}`).then(() => {
+        await axios.delete(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient/${id}`).then(() => {
             fetchPatients();
         })
     }
@@ -113,7 +113,7 @@ const Patient = () => {
             medicalHistory: medicalHistory,
             treatmentPlan: treatmentPlan
         }
-        await axios.put(`https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient`, updatedPatient).then(() => {
+        await axios.put(`https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient`, updatedPatient).then(() => {
             Swal.fire({
                 icon: 'success',
                 title: 'Patient Updated Successfully',
@@ -145,7 +145,7 @@ const Patient = () => {
             medicalHistory: medicalHistory,
             treatmentPlan: treatmentPlan
         }
-        await axios.post('https://8080-ddeaddfaafedbeeafbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient', patient).then((response) => {
+        await axios.post('https://8080-eccceeeebceecccfbdefaebabceebadffeaeaadbdbabf.project.examly.io/patient', patient).then((response) => {
             Swal.fire({
                 icon: 'success',
                 title: 'Patient Added',
